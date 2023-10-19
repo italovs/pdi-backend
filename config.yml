@@ -1,0 +1,3 @@
+# number of berths
+PORT: 8000
+BERTHS: [1, 2, 3]
