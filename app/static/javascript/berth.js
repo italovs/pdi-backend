@@ -16,7 +16,7 @@ socket.on('message', (msg) => {
   const section = document.querySelector(".scroll");
   const span = document.createElement("span");
   
-  span.innerHTML = msg;
+  span.innerHTML = `distance A: ${msg['distance_a']}; distance B: ${msg['distance_b']}; speed A: ${msg['speed_a']}; speed B: ${msg['speed_b']}; angle: ${msg['angle']};`;
 
   section.append(span);
 });
