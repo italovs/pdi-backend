@@ -1,9 +1,6 @@
 from flask import Blueprint
 from flask.templating import render_template
-from ast import literal_eval
-from os import environ
-
-BERTHS = literal_eval(environ.get('BERTHS'))
+from app import BERTHS
 
 main = Blueprint('main', __name__)
 

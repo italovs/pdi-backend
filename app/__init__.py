@@ -1,7 +1,10 @@
 from flask import Flask
 from flask_socketio import SocketIO
+from ast import literal_eval
+from os import environ
 
 socket = SocketIO()
+BERTHS = literal_eval(environ.get('BERTHS'))
 
 def create_app():
   app = Flask(__name__)
