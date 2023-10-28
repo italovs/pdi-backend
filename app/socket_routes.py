@@ -51,9 +51,18 @@ def send_data(room, queue, app_context):
   
 def build_json(speed_a, speed_b, angle, distance_a, distance_b):
   return {
-    "distance_a": distance_a,
-    "distance_b": distance_b,
-    "speed_a": speed_a,
-    "speed_b": speed_b,
-    "angle": angle,
+    "velocity": {
+      "a": speed_a,
+      "b": speed_b,
+      "unit": "cm/s"
+    },
+    "distance": {
+      "a": distance_a,
+      "b": distance_b,
+      "unit": "m"      
+    },
+    "angle": {
+      "value": angle,
+      "unit": "°"
+    }
   }

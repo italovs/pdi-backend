@@ -15,8 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
 socket.on('message', (msg) => {
   const section = document.querySelector(".scroll");
   const span = document.createElement("span");
-  
-  span.innerHTML = `distance A: ${msg['distance_a']}; distance B: ${msg['distance_b']}; speed A: ${msg['speed_a']}; speed B: ${msg['speed_b']}; angle: ${msg['angle']};`;
+  span_content = `distance A: ${msg['distance']['a']} ${msg['distance']["unit"]}; `
+  span_content = span_content + `distance B: ${msg['distance']['b']} ${msg['distance']["unit"]}; `
+  span_content = span_content + `speed A: ${msg['velocity']['a']} ${msg["velocity"]["unit"]}; `
+  span_content = span_content + `speed B: ${msg['velocity']['b']} ${msg["velocity"]["unit"]}; `
+  span_content = span_content + `angle: ${msg['angle']['value']}${msg['angle']['unit']};` 
+  span.innerHTML =  span_content
 
   section.append(span);
 });
