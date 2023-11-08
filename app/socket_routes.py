@@ -26,7 +26,17 @@ def join(room):
     queue.put(room_manager)
     thread = threading.Thread(target=send_data, args=(room, queue, current_app.app_context()))
     thread.start()
-    
+
+@socket.on('leave')
+def leave(room):
+  try:
+    room_manager = queue.get(block=False)
+  except Empty:
+    pass
+
+  room_manager.exit_room(room)
+  queue.put(room_manager)
+
 def send_data(room, queue, app_context):
   app_context.push()
   room_manager = queue.get()

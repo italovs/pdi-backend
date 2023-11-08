@@ -1,4 +1,4 @@
-from flask_socketio import join_room, rooms, close_room
+from flask_socketio import join_room, rooms, close_room, leave_room
 
 class RoomManager:
   def __init__(self, rooms):
@@ -11,6 +11,9 @@ class RoomManager:
         self.rooms.remove(room)
         room['sockets_connected'].append(sid)
         self.rooms.insert(0, room)
+  
+  def exit_room(self, room_id):
+    leave_room(room_id)
   
   def room_state(self, room_id):
     for room in self.rooms:
