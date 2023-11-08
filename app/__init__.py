@@ -3,7 +3,7 @@ from flask_socketio import SocketIO
 from ast import literal_eval
 from os import environ
 
-socket = SocketIO()
+socket = SocketIO(cors_allowed_origins="*")
 BERTHS = literal_eval(environ.get('BERTHS'))
 
 def create_app():
